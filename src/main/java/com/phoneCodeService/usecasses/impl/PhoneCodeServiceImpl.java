@@ -1,5 +1,6 @@
 package com.phoneCodeService.usecasses.impl;
 
+import com.phoneCodeService.api.exception.PhoneCodeNotFoundException;
 import com.phoneCodeService.persistence.PhoneCodeRepository;
 import com.phoneCodeService.persistence.model.PhoneCode;
 import com.phoneCodeService.usecasses.PhoneCodeService;
@@ -18,7 +19,7 @@ public class PhoneCodeServiceImpl implements PhoneCodeService {
     @Override
     public PhoneCodeResponseDto getPhoneCodeById(Long id) {
         PhoneCode phoneCode = phoneCodeRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Phone code not found with id: " + id));
+                .orElseThrow(() -> new PhoneCodeNotFoundException("Phone code not found with id: " + id));
         return phoneCodeMapper.toResponseDto(phoneCode);
     }
 }

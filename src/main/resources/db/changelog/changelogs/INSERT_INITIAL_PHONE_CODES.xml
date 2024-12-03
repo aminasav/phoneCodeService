@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet id="INSERT_INITIAL_PHONE_CODES" author="amina">
+        <insert tableName="phone_codes">
+            <column name="code" value="+7"/>
+            <column name="country_id" value="1"/>
+        </insert>
+        <insert tableName="phone_codes">
+            <column name="code" value="+1"/>
+            <column name="country_id" value="2"/>
+        </insert>
+        <insert tableName="phone_codes">
+            <column name="code" value="+44"/>
+            <column name="country_id" value="3"/>
+        </insert>
+        <insert tableName="phone_codes">
+            <column name="code" value="+49"/>
+            <column name="country_id" value="4"/>
+        </insert>
+        <insert tableName="phone_codes">
+            <column name="code" value="+81"/>
+            <column name="country_id" value="5"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
