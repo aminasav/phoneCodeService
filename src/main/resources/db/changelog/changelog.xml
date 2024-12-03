@@ -7,5 +7,6 @@
 
     <include file="db/changelog/changelogs/CREATE_TABLE_PHONE_CODES.xml"/>
     <include file="db/changelog/changelogs/INSERT_INITIAL_PHONE_CODES.xml"/>
+    <include file="db/changelog/changelogs/CREATE_TABLE_PROCESSED_EVENTS.xml"/>
 
 </databaseChangeLog>
