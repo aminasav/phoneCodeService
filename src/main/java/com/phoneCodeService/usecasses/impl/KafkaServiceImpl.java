@@ -42,7 +42,7 @@ public class KafkaServiceImpl implements KafkaService {
                        @Header("messageId") String messageId,
                        @Header(KafkaHeaders.RECEIVED_KEY) String messageKey) {
 
-        log.info("Received outbox event {}", outboxEventDTO);
+        log.info("Received outbox event {}", outboxEventDTO.toString());
 
         ProcessedEventEntity processedEventEntity = processedEventRepository.findByMessageId(messageId);
         if (processedEventEntity != null) {
@@ -50,7 +50,7 @@ public class KafkaServiceImpl implements KafkaService {
             return;
         }
 
-        String url = "http://localhost:8081/api/v1/contacts/";
+        /*String url = "http://localhost:8081/api/v1/contacts/";
         try {
             ResponseEntity<String> response = restTemplate
                     .exchange(url, HttpMethod.GET, null, String.class);
@@ -66,7 +66,7 @@ public class KafkaServiceImpl implements KafkaService {
         } catch (Exception e) {
             log.error(e.getMessage());
             throw new NonRetryableException(e);
-        }
+        }*/
 
         try {
             processedEventRepository.save(new ProcessedEventEntity(messageId));
